@@ -1,8 +1,9 @@
 {
   	"name": "dartlocaldevice",
+	"publisher": "helinx",
 	"displayName": "DartLocalDevice",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.69.0"
 	},
@@ -10,7 +11,9 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:dartlocaldevice.helloWorld"
+		"onLanguage:dart",
+        "onCommand:dartlocaldevice.helloWorld",
+		"onCommand:dartlocaldevice.startDaemon"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,6 +21,10 @@
 			{
 				"command": "dartlocaldevice.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "dartlocaldevice.startDaemon",
+				"title": "Start Flutter daemon"
 			}
 		]
 	},
