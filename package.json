@@ -3,7 +3,7 @@
 	"publisher": "helinx",
 	"displayName": "DartLocalDevice",
 	"description": "",
-	"version": "0.0.4",
+	"version": "0.0.10",
 	"engines": {
 		"vscode": "^1.69.0"
 	},
