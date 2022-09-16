@@ -1,9 +1,9 @@
 {
   	"name": "dartlocaldevice",
-	"publisher": "helinx",
+	"publisher": "helin24",
 	"displayName": "DartLocalDevice",
 	"description": "",
-	"version": "0.0.10",
+	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.69.0"
 	},
@@ -19,12 +19,29 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "dartlocaldevice.helloWorld",
-				"title": "Hello World"
+				"command": "dartlocaldevice.killDaemon",
+				"title": "Kill daemon"
 			},
 			{
 				"command": "dartlocaldevice.startDaemon",
 				"title": "Start Flutter daemon"
+			}
+		],
+		"configuration": [
+			{
+				"title": "main",
+				"order": 1,
+				"properties": {
+					"dartlocaldevice.logFile": {
+						"type": [
+							"null",
+							"string"
+						],
+						"default": null,
+						"description": "The path to a log file.",
+						"scope": "machine-overridable"
+					}
+				}
 			}
 		]
 	},
@@ -49,5 +66,9 @@
 		"typescript": "^4.7.2",
 		"@vscode/test-electron": "^2.1.3"
 	},
-	"extensionKind": ["ui"]
+	"extensionKind": ["ui"],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/helin24/dart-local-device.git"
+	}
 }
