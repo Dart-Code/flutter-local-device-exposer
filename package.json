@@ -1,8 +1,8 @@
 {
-  	"name": "dartlocaldevice",
-	"publisher": "helin24",
-	"displayName": "DartLocalDevice",
-	"description": "",
+	"name": "flutter-local-device-exposer",
+	"publisher": "Dart-Code",
+	"displayName": "FlutterLocalDeviceExposer",
+	"description": "Connects to local devices during Flutter development when using VS Code Remote over SSH. This extension is only relevant for developing Flutter Bazel projects with a remote machine.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.69.0"
@@ -12,18 +12,18 @@
 	],
 	"activationEvents": [
 		"onLanguage:dart",
-        "onCommand:dartlocaldevice.helloWorld",
-		"onCommand:dartlocaldevice.startDaemon"
+        "onCommand:flutter-local-device-exposer.helloWorld",
+		"onCommand:flutter-local-device-exposer.startDaemon"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "dartlocaldevice.killDaemon",
+				"command": "flutter-local-device-exposer.killDaemon",
 				"title": "Kill daemon"
 			},
 			{
-				"command": "dartlocaldevice.startDaemon",
+				"command": "flutter-local-device-exposer.startDaemon",
 				"title": "Start Flutter daemon"
 			}
 		],
@@ -32,7 +32,7 @@
 				"title": "main",
 				"order": 1,
 				"properties": {
-					"dartlocaldevice.logFile": {
+					"flutter-local-device-exposer.logFile": {
 						"type": [
 							"null",
 							"string"

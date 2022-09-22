@@ -6,8 +6,8 @@ let daemonProcess: child_process.ChildProcess;
 let logStream: fs.WriteStream;
 
 export function activate(context: vscode.ExtensionContext) {
-	context.subscriptions.push(vscode.commands.registerCommand('dartlocaldevice.startDaemon', async ({script, command, workingDirectory}) => {
-		const fileName = vscode.workspace.getConfiguration("dartlocaldevice").get<string>("logFile");
+	context.subscriptions.push(vscode.commands.registerCommand('flutter-local-device-exposer.startDaemon', async ({script, command, workingDirectory}) => {
+		const fileName = vscode.workspace.getConfiguration("flutter-local-device-exposer").get<string>("logFile");
 		if (fileName) {
 			logStream = fs.createWriteStream(fileName);
 		}
@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	// TODO (helin24): Remove this when deactivate is fixed.
-	context.subscriptions.push(vscode.commands.registerCommand('dartlocaldevice.killDaemon', async () => {
+	context.subscriptions.push(vscode.commands.registerCommand('flutter-local-device-exposer.killDaemon', async () => {
 		deactivate();
 	}));
 }

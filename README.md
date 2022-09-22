@@ -1,3 +1,3 @@
-# dartlocaldevice README
+# Flutter Local Device Exposer README
 
-Set up local Flutter daemon for detecting devices
+This extension connects to local devices during Flutter development when using VS Code Remote over SSH. This extension is only relevant for developing Flutter Bazel projects with a remote machine.
