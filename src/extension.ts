@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		daemonProcess = child_process.spawn(script, [command], { cwd: workingDirectory, shell: true, detached: true });
-		vscode.window.showInformationMessage(`process started: ${script} ${command} ${daemonProcess.pid}`);
+		maybeLogLine(`process started: ${script} ${command} ${daemonProcess.pid}`);
 
 		const promise = new Promise<string>((resolve, reject) => {
 			if (daemonProcess === null) {
