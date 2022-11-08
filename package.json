@@ -12,7 +12,6 @@
 	],
 	"activationEvents": [
 		"onLanguage:dart",
-        "onCommand:flutter-local-device-exposer.helloWorld",
 		"onCommand:flutter-local-device-exposer.startDaemon"
 	],
 	"main": "./out/extension.js",
@@ -69,6 +68,6 @@
 	"extensionKind": ["ui"],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/helin24/dart-local-device.git"
+		"url": "https://github.com/Dart-Code/flutter-local-device-exposer.git"
 	}
 }
