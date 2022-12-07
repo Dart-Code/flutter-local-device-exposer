@@ -1,15 +1,16 @@
 import * as child_process from "child_process";
 import * as fs from "fs";
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 let daemonProcess: child_process.ChildProcess;
-let logStream: fs.WriteStream;
+let logLocation: string;
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('flutter-local-device-exposer.startDaemon', async ({script, command, workingDirectory}) => {
 		const fileName = vscode.workspace.getConfiguration("flutter-local-device-exposer").get<string>("logFile");
 		if (fileName) {
-			logStream = fs.createWriteStream(fileName);
+			logLocation = fileName;
 		}
 
 		daemonProcess = child_process.spawn(script, [command], { cwd: workingDirectory, shell: true, detached: true });
@@ -39,7 +40,6 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export async function deactivate(): Promise<void> {
 	maybeLogLine("Deactivating");
-	maybeLogLine("Deactivating 2");
 	try {
 		maybeLogLine(`daemon process id: ${daemonProcess.pid} killed? ${daemonProcess.killed}`);
 
@@ -51,12 +51,11 @@ export async function deactivate(): Promise<void> {
 	} catch (e) {
 		maybeLogLine(`failure: ${e}`);
 	}
-	logStream.end();
 }
 
 function maybeLogLine(content: string): void {
 	const time = new Date().toLocaleString();
-	if (logStream !== undefined) {
-		logStream.write(`${time}: ${content}\n`);
+	if (logLocation !== undefined) {
+		fs.appendFileSync(logLocation, `[extension][${process.pid}]${time}: ${content}\n`);
 	}
 }
